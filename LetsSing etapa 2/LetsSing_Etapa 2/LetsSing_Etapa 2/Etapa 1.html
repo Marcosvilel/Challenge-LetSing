@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>LetSing</title>
+  <link rel="stylesheet" href="CSS/Etapa1.css">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0&icon_names=keyboard_arrow_down" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light navbar-roxa fixed-top sticky-top">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Acesso rápido
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="tela_contato.html">Contato</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="tela_contato.html#perguntas-frequentes">Ajuda</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="tela_documentos.html">Documentos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="integracao.html">Integração</a>
+        </li>
+      </ul>
+      <button type="button" class="button-bar" onclick="window.location.href='Etapa 1.html';">Enviar documento </button>
+    </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <h2>ENVIAR DOCUMENTO</h2>
+        <p class="subtitulo">Preencha os campos abaixo e faça o upload do arquivo</p>
+      </div>
+      <div class="etapa-indicator">Etapa 1 de 3</div>
+    </div>
+
+    <div class="arquivos">
+      <p class="documentos">Envie o(s) arquivo(s) do documento:</p>
+    </div>
+
+    <div class="documentos-linha">
+      <span class="label-documentos">Documentos</span>
+      <a href="#" class="alterar-pasta">Alterar pasta</a>
+      <!-- o que seria esse alterar-pasta -->
+    </div>
+
+    <div class="upload-container">
+      <input type="file" id="fileUpload" multiple hidden>
+      <label for="fileUpload" class="upload-box" id="uploadLabel">
+        Arraste o(s) arquivo(s), ou clique aqui para procurá-lo(s) em seu computador.<br>
+        Envie arquivo(s) .DOC, .DOCX OU PDF
+      </label>
+      <div class="spinner" id="spinner" style="display: none;">
+        <div class="loader"></div>
+        <p>Enviando arquivo...</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label><input type="checkbox"> Documentos serão anexos?</label>
+    </div>
+
+    <div class="form-column">
+
+      <div class="question">
+        <div class="question-text">Qual será o nome do documento?</div>
+        <div class="input-line-container">
+          <input type="text" class="input-line" style="width: 280px;">
+        </div>
+      </div>
+
+      <div class="row-container">
+        <div class="row-item">
+          <div class="question-text with-arrow">Quais grupos terão acesso ao documento?</div>
+          <div class="input-line-container">
+            <select class="input-line" style="width: 60%;">
+              <option>Selecione um grupo</option>
+              <option>Grupo Administradores</option>
+              <option>Grupo Juridico</option>
+              <option>Grupo Comercial</option>
+              <option>Grupo Financeiro</option>
+              <!-- precisa comprender o que pode colocar aqui -->
+            </select>
+          </div>
+        </div>
+
+        <div class="row-item">
+          <div class="question-text">Quais são as categorias desse documento?</div>
+          <div class="input-line-container">
+            <select class="input-line" style="width: 60%;">
+              <option value="">Selecione uma categoria</option>
+              <option value="financeiro">Financeira – documentos como relatórios contábeis, notas fiscais,
+                demonstrativos de resultados.</option>
+              <option value="Administrativa">Administrativa – atas de reunião, memorandos, organogramas.</option>
+              <option value="juridico">Jurídica – contratos, termos de uso, petições, certidões.</option>
+              <option value="Comercial">Comercial – propostas de venda, orçamentos, catálogos de produtos.</option>
+              <!-- precisa comprender o que pode colocar aqui -->
+            </select>
+          </div>
+        </div>
+
+        <div class="form-buttons">
+          <a href="tela_documentos.html" class="cancel-button">CANCELAR</a>
+          <a href="Etapa2.html" class="save-button">AVANÇAR</a>
+        </div>
+      
+      </div>
+      <!-- Optional JavaScript; choose one of the two! -->
+
+      <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+
+      <!-- Option 2: Separate Popper and Bootstrap JS -->
+      <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    -->
+      <script src="JAVASCRIPT/interaction.js"></script>
+      <!-- <script src="JAVASCRIPT/SolicitacaoLoc.js"></script> -->
+
+      <!--Rodapé-->
+
+      
+
+</body>
+
+</html>

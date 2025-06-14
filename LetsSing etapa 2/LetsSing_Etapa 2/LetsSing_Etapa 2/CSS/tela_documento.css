@@ -1,0 +1,292 @@
+:root {
+  --primary-color: #33336D;
+  --secondary-color: #6363D3;
+  --text-color: #333;
+  --light-bg: #f9f9f9;
+  --font-main: 'Poppins', sans-serif;
+}
+
+.navbar-purple {
+    background-color: #33336D;
+  }
+
+  .nav-link {
+    color: #FFFFFF !important;
+    margin-right: 30px;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #FFFFFF !important;
+  }
+  
+  /* Adiciona sublinhado animado */
+  .nav-link {
+    position: relative;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FFFFFF;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .nav-link:hover::after {
+    visibility: visible;
+    width: 100%;
+  }
+
+  /* Cor de fundo ao clicar (active) */
+.dropdown-item:active {
+  background-color: #eeeeee !important;
+  color: white !important;
+}
+
+/* Cor ao passar o mouse (hover) */
+.dropdown-item:hover {
+  background-color: #eeeeee!important;
+}
+
+/* Remove o outline padrão do Bootstrap */
+.dropdown-item:focus {
+  outline: none;
+  background-color: #eeeeee !important;
+}
+  
+  .button-bar {
+    background-color: #FFFFFF;
+    color: #33336D;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    border: 1px solid #FFFFFF; /* Borda sutil */
+    border-radius: 20px;
+    padding: 5px 15px; /* Padding um pouco maior */
+    margin-left: auto;
+    margin-right: 400px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Transição para todas as propriedades */
+  }
+  
+  .button-bar:hover {
+    background-color: #4a50c8;
+    color: #FFFFFF;
+    transform: translateY(-2px); /* Levanta levemente o botão */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra sutil */
+  }
+  
+  .button-bar:active {
+    transform: translateY(0); /* Efeito de pressionado */
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 100px;
+    margin-left: 170px;
+  }
+  
+  .title {
+    color: #4a50c8;
+    margin-bottom: 10px;
+    /* text-align: right; (opcional se o container já tiver) */ 
+  }
+
+.button-middle {
+    background-color: #33336D;
+    color: #FFFFFF;
+    border-radius: 20px;
+    padding: 5px 20px;
+    border: none;
+    margin-top: 320px;
+    margin-right:20px;
+    border-left: 200px;
+}
+
+.action-buttons {
+  position: absolute;
+  top: 320px;
+  right: 80px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  display: flex;
+  gap: 25px; /* Substitui as margens laterais por gap */
+}
+
+.action-btn {
+  background-color: #33336D;
+  color: #FFFFFF;
+  border-radius: 20px;
+  padding: 8px 25px; /* Aumentei um pouco o padding para melhor toque */
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap; /* Evita quebra de texto */
+  font-family: inherit; /* Herda a fonte do container */
+  font-size: inherit; /* Herda o tamanho da fonte */
+}
+
+/* Estilo para o botão primary */
+.action-btn.primary {
+  background-color: #33336D;
+}
+
+/* Estilo para o botão success */
+.action-btn.success {
+  background-color: #33336D;
+}
+
+/* Estados interativos */
+.action-btn:hover {
+  background-color: #1a1a4d; /* Tom mais escuro para hover */
+  transform: translateY(-1px);
+}
+
+.action-btn:active {
+  transform: translateY(0);
+}
+
+/* Efeito extra para botões primary/success se quiser diferenciar */
+.action-btn.primary:hover {
+  background-color: #1a1a4d;
+}
+
+.action-btn.success:hover {
+  background-color: #1a1a4d;
+}
+
+.bars-container {
+  margin-top: 250px;
+}
+
+.text-header {
+  display: flex;
+  justify-content: space-between; /* Distribui o espaço igualmente */
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  align-items: center;
+  padding: 15px 30px;
+  background: rgba(255, 255, 255, 0.8); /* Fundo opcional */
+  border-radius: 5px;
+  margin: 20px auto;
+  max-width: 1200px; /* Ou o tamanho do seu container */
+}
+
+.header-item {
+  flex: 1; /* Cada item ocupa espaço igual */
+  text-align: center;
+  min-width: 0; /* Permite que o texto quebre */
+  padding: 0 10px;
+}
+
+/*barras do meio*/
+.data-container {
+  font-family: 'Poppins', sans-serif;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.data-header-a {
+  display: flex;
+  gap: 5px; /* Espaço entre ícones */
+  padding: 3px 20px;
+  background: #ebebec; /* Cor de fundo do cabeçalho */
+  border-radius: 8px 8px 0 0; /* Arredonda apenas o topo */
+}
+
+.btn-icon {
+  background: transparent;
+  border: none !important;
+  box-shadow: none !important;
+  color: white; /* Cor dos ícones */
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.btn-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.btn-icon:active {
+  transform: scale(0.95);
+}
+
+.data-header-b {
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+}
+
+.data-row,
+.data-row-b {
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+}
+
+
+.data-item {
+  flex: 1;
+  padding: 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Barra verde para "Aprovado" */
+.status-approved {
+  position: relative;
+  padding-left: 16px;
+  color: #4ac85b;
+}
+
+.status-approved::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  background-color: #4ac85b;
+  border-radius: 2px;
+}
+
+/* Estilo para status pendente */
+.status-pending {
+  color: #ffc107; /* Amarelo */
+}
+
+.btn-icon {
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  transition: all 0.2s;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.btn-icon:hover {
+  background-color: #e9ecef;
+  transform: scale(1.1);
+}
+
+.btn-icon:active {
+  transform: scale(0.95);
+}

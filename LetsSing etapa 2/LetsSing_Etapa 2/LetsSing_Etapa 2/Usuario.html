@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>LetsSing ASSINAR DOCUMENTO</title>
+  <link rel="stylesheet" href="CSS/Usuario.css">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0&icon_names=keyboard_arrow_down" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+
+  <!--teste-->
+  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+  <!--teste-->
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light navbar-roxa fixed-top sticky-top">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            Acesso rápido
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="tela_contato.html">Contato</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="tela_contato.html#perguntas-frequentes">Ajuda</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="tela_documentos.html">Documentos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="integracao.html">Integração</a>
+        </li>
+      </ul>
+      <button type="button" class="button-bar" onclick="window.location.href='Etapa 1.html';">Enviar documento </button>
+    </div>
+    </div>
+  </nav>
+
+  <!--Conteúdo principal - Fluxo de Assinatura-->
+  <main class="container py-5 mt-5">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="text-container mb-4">
+          <h2 class="title">ASSINAR DOCUMENTO</h2>
+          <p class="text-muted">Você está prestes a assinar digitalmente um documento importante. Por favor, revise o
+            conteúdo antes de prosseguir.</p>
+        </div>
+
+        <div class="document-container">
+          <div class="document-info mb-4">
+            <h4>Contrato de Prestação de Serviços</h4>
+            <p class="text-muted">Documento ID: #LS-2023-04589</p>
+            <p><strong>Enviado por:</strong> Contabilidade ABC Ltda.</p>
+            <p><strong>Data de envio:</strong> 15/11/2023</p>
+          </div>
+
+          <div class="document-preview mb-4">
+            <div class="d-flex justify-content-center align-items-center h-100">
+              <div class="text-center">
+                <i class="bi bi-file-earmark-pdf pdf-icon"></i>
+                <p class="mt-3">Visualização do documento</p>
+                <button class="btn btn-outline-primary">Baixar documento completo</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="signer-info">
+            <h5>Suas informações de assinatura</h5>
+            <div class="row">
+              <div class="col-md-6">
+                <p><strong>Nome:</strong> João da Silva</p>
+                <p><strong>CPF:</strong> 123.456.789-00</p>
+              </div>
+              <div class="col-md-6">
+                <p><strong>E-mail:</strong> joao.silva@example.com</p>
+                <p><strong>IP:</strong> 192.168.1.1</p>
+              </div>
+            </div>
+            <p class="text-muted small">Essas informações serão registradas no certificado de assinatura digital.</p>
+          </div>
+
+          <div class="signature-section">
+            <h5 class="mb-3">Assinatura Digital</h5>
+            <div class="form-group">
+              <label for="signatureType">Tipo de assinatura:</label>
+              <select class="form-control" id="signatureType">
+                <option value="digital">Assinatura Digital (recomendado)</option>
+                <option value="manual">Assinatura Manual</option>
+                <option value="certificado">Certificado Digital</option>
+              </select>
+            </div>
+
+            <div id="digitalSignature">
+              <p>Clique no botão abaixo para criar sua assinatura digital:</p>
+              <button class="btn btn-primary" id="createSignatureBtn"
+                style="background-color: #6363D3; color: white; border: none; padding: 12px 24px; border-radius: 6px; font-size: 16px; cursor: pointer; transition: background-color 0.3s;">
+                Criar Assinatura Digital
+              </button>
+            </div>
+
+
+
+            <div id="manualSignature" style="display: none;">
+              <p>Desenhe sua assinatura no quadro abaixo:</p>
+              <canvas id="signaturePad" class="signature-pad"></canvas>
+              <div class="signature-actions">
+                <button id="clearSignature" class="btn btn-outline-secondary mr-2">Limpar</button>
+                <button id="saveSignature" class="btn btn-primary">Usar esta assinatura</button>
+              </div>
+            </div>
+
+            <div id="certificateSignature" style="display: none;">
+              <p>Selecione seu certificado digital:</p>
+              <div class="alert alert-info">
+                <i class="bi bi-info-circle"></i> Conecte seu token ou leitor de certificados e selecione o certificado
+                que deseja usar.
+              </div>
+              <button class="btn btn-primary">Selecionar Certificado</button>
+            </div>
+          </div>
+
+          <!-- teste-->
+
+
+          <div class="form-group mt-4">
+            <label class="d-block">Validação rápida:</label>
+
+            <!-- Botões para QR Code -->
+            <button class="btn btn-outline-primary mb-2" id="showQrBtn" onclick="gerarQRCode()">Gerar QR Code</button>
+            <button class="btn btn-outline-danger mb-2" id="hideQrBtn" onclick="ocultarQRCode()"
+              style="display: none;">Ocultar QR Code</button>
+            <canvas id="qrCanvas" style="display: none; margin-top: 10px;"></canvas>
+
+            <!-- Botão para Validação Facial (aparece apenas se tiver câmera) -->
+            <button class="btn btn-outline-success mb-2" id="facialValidationBtn" onclick="iniciarValidacaoFacial()"
+              style="display: none;">
+              Validação Facial
+            </button>
+          </div>
+
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="agreeEasyValidation">
+            <label class="form-check-label" for="agreeEasyValidation">
+              Declaro, para todos os fins legais, estar ciente e de acordo com a realização da <strong>validação de
+                identidade</strong> por meio de <strong>QR Code</strong> ou <strong>Reconhecimento Facial</strong>,
+              autorizando expressamente o uso desses métodos para fins de autenticação eletrônica deste procedimento.
+            </label>
+          </div>
+
+
+          <!--teste-->
+
+          <div class="form-group form-check mt-4">
+            <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+            <label class="form-check-label" for="agreeTerms">Eu concordo com os termos deste documento e confirmo que
+              estou ciente de que esta assinatura tem validade legal conforme a Lei nº 14.063/2020.</label>
+          </div>
+
+
+
+          <div class="d-flex justify-content-between mt-4">
+            <button class="btn btn-outline-secondary"
+              onclick="window.location.href='tela_documentos.html'">Recusar</button>
+            <button id="signDocument" class="btn btn-success">Assinar Documento</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Status do Documento</h5>
+          </div>
+          <div class="card-body">
+            <div class="signature-timeline">
+              <div class="timeline-step completed">
+                <h6>Documento criado</h6>
+                <p class="text-muted small">15/11/2023 10:23</p>
+                <p>Por: Maria Oliveira (Contabilidade ABC)</p>
+              </div>
+
+              <div class="timeline-step completed">
+                <h6>Enviado para assinatura</h6>
+                <p class="text-muted small">15/11/2023 10:25</p>
+                <p>2 signatários</p>
+              </div>
+
+              <div class="timeline-step current">
+                <h6>Aguardando sua assinatura</h6>
+                <p class="text-muted small">Pendente</p>
+                <p>Você é o 1º signatário</p>
+              </div>
+
+              <div class="timeline-step">
+                <h6>Aguardando outras assinaturas</h6>
+                <p class="text-muted small">Pendente</p>
+                <p>1 assinatura restante</p>
+              </div>
+
+              <div class="timeline-step">
+                <h6>Documento concluído</h6>
+                <p class="text-muted small">Pendente</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mt-4">
+          <div class="card-header bg-light">
+            <h5 class="mb-0">Outros Signatários</h5>
+          </div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                  <h6>Carlos Mendes</h6>
+                  <p class="small text-muted mb-0">Diretor Financeiro</p>
+                </div>
+                <span class="badge badge-secondary">Pendente</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                  <h6>Você</h6>
+                  <p class="small text-muted mb-0">Cliente</p>
+                </div>
+                <span class="badge badge-warning">Em andamento</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="alert alert-info mt-4">
+          <h6><i class="bi bi-shield-lock"></i> Segurança Garantida</h6>
+          <p class="small">Esta assinatura será protegida com:</p>
+          <ul class="small">
+            <li>Criptografia AES-256</li>
+            <li>Certificado digital de autoria</li>
+            <li>Carimbo de tempo</li>
+            <li>Registro de auditoria</li>
+            <li>Barragem de VPN</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+
+  </div>
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    -->
+  <script src="JAVASCRIPT/Usuario.js"></script>
+  <script src="JAVASCRIPT/vpnCheck.js"></script>
+
+  <!-- <script src="JAVASCRIPT/SolicitacaoLoc.js"></script> -->
+
+  <!--Rodapé-->
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,312 @@
+:root {
+  --primary-color: #33336D;
+  --secondary-color: #6363D3;
+  --text-color: #333;
+  --light-bg: #f9f9f9;
+  --font-main: 'Poppins', sans-serif;
+}
+
+
+.button-bar {
+  background-color: #FFFFFF;
+  color: #33336D;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  border: 1px solid #FFFFFF;
+  /* Borda sutil */
+  border-radius: 20px;
+  padding: 5px 15px;
+  /* Padding um pouco maior */
+  margin-left: auto;
+  margin-right: 400px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* Transição para todas as propriedades */
+}
+
+.button-bar:hover {
+  background-color: #4a50c8;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  /* Levanta levemente o botão */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Sombra sutil */
+}
+
+.button-bar:active {
+  transform: translateY(0);
+  /* Efeito de pressionado */
+}
+
+.navbar-roxa {
+  background-color: #33336D;
+}
+
+.nav-link {
+  color: #FFFFFF !important;
+  margin-right: 30px;
+}
+
+.nav-link:hover {
+    color: #FFFFFF !important;
+  }
+  
+  /* Adiciona sublinhado animado */
+  .nav-link {
+    position: relative;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FFFFFF;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .nav-link:hover::after {
+    visibility: visible;
+    width: 100%;
+  }
+
+
+
+.upload-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.upload-box {
+  width: 80%;
+  max-width: 800px;
+  height: 200px;
+  border: 3px dashed #000;
+  border-radius: 8px;
+  display: flex;
+  /* Flexbox ativado */
+  flex-direction: column;
+  /* Empilha as linhas de texto */
+  justify-content: center;
+  /* Centraliza verticalmente */
+  align-items: center;
+  /* Centraliza horizontalmente */
+  text-align: center;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #555;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.upload-box:hover {
+  background-color: #f1f1f1;
+}
+
+h2 {
+  color: #4a50c8;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.container {
+  margin-top: 37px;
+}
+
+
+.arquivos {
+  margin-top: 37px;
+}
+
+.documentos-linha {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  /* Espaço entre os dois */
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+
+.label-documentos {
+  font-weight: 500;
+  color: #333;
+}
+
+.alterar-pasta {
+  color: #4a50c8;
+  text-decoration: underline;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.form-linha {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  /* Permite quebra em telas menores */
+}
+
+.question {
+  margin-bottom: 25px;
+}
+
+.question-text {
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 8px;
+}
+
+.input-line {
+  border: none;
+  border-bottom: 2px solid #333;
+  width: 100%;
+  padding: 2px 0;
+  font-size: 1em;
+  outline: none;
+}
+
+.input-line:focus {
+  border-bottom-color: #0066cc;
+}
+
+.row-container {
+  display: flex;
+  gap: 1px;
+}
+.last-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 0px; /* Reduzi de 15px para 5px */
+}
+
+.row-item {
+  flex: 1;
+}
+
+.input-line-container select {
+    width: 60%;
+    padding: 8px 12px;
+    border: 1px solid #4a50c8;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+  }
+
+  /* Efeito hover e focus */
+  .input-line-container select:hover {
+    border-color: #888;
+  }
+  .input-line-container select:focus {
+    outline: none;
+    border-color: #0066ff;
+    box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.2);
+  }
+
+  /* Estilizando as opções */
+  .input-line-container option {
+    padding: 8px;
+  }
+
+.form-buttons {
+  display: flex;
+  gap: 15px; /* Espaçamento entre os botões */
+  margin-top: 15px;
+}
+
+.cancel-button, .save-button {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 25px; /* Bordas arredondadas */
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Efeito suave ao passar o mouse */
+}
+
+/* Botão CANCELAR (sem gradiente, estilo secundário) */
+.cancel-button {
+  background: #f1f1f1;
+  color: #33336D;
+  border: 1px solid #33336D;
+}
+
+/* Botão SALVAR (com gradiente roxo) */
+.save-button {
+  background: linear-gradient(90deg, #33336D, #6363D3);
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Efeito hover no botão CANCELAR */
+.cancel-button:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px); /* Levanta levemente */
+}
+
+/* Efeito hover no botão SALVAR */
+.save-button:hover {
+  background: linear-gradient(90deg, #2a2a5a, #5a5ac8);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Sombra mais forte */
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #6363D3;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+  }
+  /* giro do enviando documento */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .spinner {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+.etapa-indicator {
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+    background: linear-gradient(90deg, #33336D, #6363D3);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+}
+
+/* Estilizando o rodapé */
+
+.secao-logos .header-secao {
+    margin-bottom: 50px
+}
+
+.secao-logos .center {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px
+}
+
+.secao-logos .center a {
+    margin-inline:auto}
+
+.secao-logos .owl-nav {
+    margin-top: 30px
+}
+

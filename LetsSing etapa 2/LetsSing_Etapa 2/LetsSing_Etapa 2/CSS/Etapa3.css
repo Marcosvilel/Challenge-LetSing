@@ -1,0 +1,165 @@
+:root {
+  --primary-color: #33336D;
+  --secondary-color: #6363D3;
+  --text-color: #333;
+  --light-bg: #f9f9f9;
+  --font-main: 'Poppins', sans-serif;
+}
+
+.navbar-roxa {
+  background-color: #33336D;
+}
+
+.nav-link {
+  color: #FFFFFF !important;
+  margin-right: 30px;
+}
+.nav-link:hover {
+    color: #FFFFFF !important;
+  }
+  
+  /* Adiciona sublinhado animado */
+  .nav-link {
+    position: relative;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FFFFFF;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .nav-link:hover::after {
+    visibility: visible;
+    width: 100%;
+  }
+
+.button-bar {
+    background-color: #FFFFFF;
+    color: #33336D;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    border: 1px solid #FFFFFF;
+    /* Borda sutil */
+    border-radius: 20px;
+    padding: 5px 15px;
+    /* Padding um pouco maior */
+    margin-left: auto;
+    margin-right: 400px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* Transição para todas as propriedades */
+}
+
+.button-bar:hover {
+    background-color: #4a50c8;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    /* Levanta levemente o botão */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil */
+}
+
+.button-bar:active {
+    transform: translateY(0);
+    /* Efeito de pressionado */
+}
+
+.container {
+  margin-top: 37px;
+}
+
+h2 {
+  color: #4a50c8;
+  margin-top: 1px;
+  margin-bottom: 10px;
+}
+
+
+.etapa-indicator {
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+    background: linear-gradient(90deg, #33336D, #6363D3);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+.observadores-label {
+  color: #4a50c8;
+}
+
+.mensagem-label {
+  color: #4a50c8;
+}
+
+.lembretes-label {
+  color: #4a50c8;
+}
+
+
+.form-buttons {
+  display: flex;
+  gap: 15px; /* Espaçamento entre os botões */
+  margin-top: 15px;
+}
+
+.cancel-button, .save-button {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 25px; /* Bordas arredondadas */
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Efeito suave ao passar o mouse */
+}
+
+/* Botão CANCELAR (sem gradiente, estilo secundário) */
+.cancel-button {
+  background: #f1f1f1;
+  color: #33336D;
+  border: 1px solid #33336D;
+}
+
+/* Botão SALVAR (com gradiente roxo) */
+.save-button {
+  background: linear-gradient(90deg, #33336D, #6363D3);
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Efeito hover no botão CANCELAR */
+.cancel-button:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px); /* Levanta levemente */
+}
+
+/* Efeito hover no botão SALVAR */
+.save-button:hover {
+  background: linear-gradient(90deg, #2a2a5a, #5a5ac8);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Sombra mais forte */
+}
+
+.toolbar {
+    background-color: #6c757d;
+    color: white;
+    padding: 4px 8px;
+  }
+  
+  .msg-editor {
+    background-color: #e8eaed;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+
+
+  

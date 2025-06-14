@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Validação Facial Rápida</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 100px 300px;
+            text-align: center;
+            transform: scale(1.0);
+            transform-origin: top center;
+        }
+
+        #videoContainer {
+            position: relative;
+            display: inline-block;
+            margin: 20px auto;
+        }
+
+        #video {
+            transform: scaleX(-1);
+            display: block;
+            border-radius: 10px;
+        }
+
+        #faceGuide {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px;
+            height: 250px;
+            border: 3px solid #33336D;
+            border-radius: 50%;
+            pointer-events: none;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        button {
+            margin: 10px 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #33336D;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #6363D3;
+        }
+
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        #status {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            display: inline-block;
+            min-width: 300px;
+        }
+
+        .status-item {
+            margin: 8px 0;
+            padding: 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .instruction {
+            font-size: 40px;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #33336D;
+        }
+
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .warning {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+
+        h1 {
+            font-size: 50px;
+            color: #6363D3;
+            margin-bottom: 20px;
+        }
+
+        /* Estilo do botão Voltar */
+        #backBtn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #6c757d;
+        }
+
+        #backBtn:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Botão Voltar -->
+    <button id="backBtn" onclick="window.location.href='Usuario.html'">Voltar</button>
+
+    <h1>Validação Facial Rápida</h1>
+
+    <div class="instruction" id="instruction">Posicione seu rosto no círculo</div>
+
+    <div id="videoContainer">
+        <video id="video" width="640" height="480" autoplay muted></video>
+        <div id="faceGuide"></div>
+        <canvas id="overlay" width="640" height="480"></canvas>
+    </div>
+
+    <div>
+        <button id="startBtn">Iniciar</button>
+        <button id="stopBtn" disabled>Parar</button>
+    </div>
+
+    <div id="status">
+        <div class="status-item" id="positionStatus">
+            <span>⬤</span> Posicionamento: Centralizando...
+        </div>
+        <div class="status-item info" id="actionStatus">
+            Ação: Aguardando início
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+    <script>
+        // Configurações de desempenho
+        const config = {
+            detectionInterval: 100,
+            validationTime: 1000,
+            positionThreshold: 0.8,
+            blinkThreshold: 0.22,
+            movementThreshold: 15
+        };
+
+        // Estado do sistema
+        const state = {
+            isRunning: false,
+            currentAction: null,
+            facePosition: { x: 0, y: 0, size: 0 },
+            lastPosition: null,
+            actionStartTime: null,
+            validationTimer: null
+        };
+
+        // Elementos DOM
+        const elements = {
+            video: document.getElementById('video'),
+            startBtn: document.getElementById('startBtn'),
+            stopBtn: document.getElementById('stopBtn'),
+            instruction: document.getElementById('instruction'),
+            positionStatus: document.getElementById('positionStatus'),
+            actionStatus: document.getElementById('actionStatus'),
+            faceGuide: document.getElementById('faceGuide'),
+            overlay: document.getElementById('overlay')
+        };
+
+        // Inicialização
+        async function init() {
+            await loadModels();
+            setupEventListeners();
+        }
+
+        // Carrega modelos do face-api.js
+        async function loadModels() {
+            try {
+                await faceapi.nets.tinyFaceDetector.loadFromUri('https://justadudewhohacks.github.io/face-api.js/models');
+                await faceapi.nets.faceLandmark68Net.loadFromUri('https://justadudewhohacks.github.io/face-api.js/models');
+                console.log('Modelos carregados!');
+            } catch (error) {
+                console.error('Erro ao carregar modelos:', error);
+                alert('Erro ao carregar os modelos de detecção facial.');
+            }
+        }
+
+        // Configura listeners de eventos
+        function setupEventListeners() {
+            elements.startBtn.addEventListener('click', startSystem);
+            elements.stopBtn.addEventListener('click', stopSystem);
+        }
+
+        // Inicia o sistema
+        async function startSystem() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                elements.video.srcObject = stream;
+                elements.startBtn.disabled = true;
+                elements.stopBtn.disabled = false;
+                state.isRunning = true;
+
+                updateUI('instruction', 'Posicione seu rosto no círculo');
+                updateUI('positionStatus', '⬤ Posicionamento: Centralizando...', 'warning');
+
+                // Inicia o loop de detecção
+                detectionLoop();
+            } catch (err) {
+                console.error("Erro ao acessar câmera:", err);
+                alert("Não foi possível acessar a câmera. Verifique as permissões.");
+            }
+        }
+
+        // Para o sistema
+        function stopSystem() {
+            if (elements.video.srcObject) {
+                elements.video.srcObject.getTracks().forEach(track => track.stop());
+                elements.video.srcObject = null;
+            }
+
+            clearTimeout(state.validationTimer);
+            state.isRunning = false;
+            state.currentAction = null;
+
+            elements.startBtn.disabled = false;
+            elements.stopBtn.disabled = true;
+
+            updateUI('instruction', 'Sistema parado. Clique em Iniciar para começar.');
+            updateUI('positionStatus', '⬤ Posicionamento: Inativo', 'info');
+            updateUI('actionStatus', 'Ação: Sistema parado', 'info');
+
+            // Limpa o overlay
+            const ctx = elements.overlay.getContext('2d');
+            ctx.clearRect(0, 0, elements.overlay.width, elements.overlay.height);
+        }
+
+        // Loop principal de detecção
+        async function detectionLoop() {
+            if (!state.isRunning) return;
+
+            const detections = await faceapi.detectAllFaces(
+                elements.video,
+                new faceapi.TinyFaceDetectorOptions()
+            ).withFaceLandmarks();
+
+            if (detections.length > 0) {
+                processDetection(detections[0]);
+            } else {
+                updateUI('positionStatus', '⬤ Rosto não detectado', 'error');
+            }
+
+            setTimeout(detectionLoop, config.detectionInterval);
+        }
+
+        // Processa uma detecção
+        function processDetection(detection) {
+            updateFacePosition(detection);
+
+            if (!state.currentAction) {
+                checkPositioning();
+            } else {
+                checkAction(detection.landmarks);
+            }
+
+            drawLandmarks(detection);
+        }
+
+        // Atualiza a posição do rosto
+        function updateFacePosition(detection) {
+            const box = detection.detection.box;
+            state.facePosition = {
+                x: box.x + box.width / 2,
+                y: box.y + box.height / 2,
+                size: Math.max(box.width, box.height)
+            };
+        }
+
+        // Verifica o posicionamento do rosto
+        function checkPositioning() {
+            const guideRect = elements.faceGuide.getBoundingClientRect();
+            const videoRect = elements.videoContainer.getBoundingClientRect();
+
+            const guideCenter = {
+                x: guideRect.left - videoRect.left + guideRect.width / 2,
+                y: guideRect.top - videoRect.top + guideRect.height / 2
+            };
+
+            const distance = Math.sqrt(
+                Math.pow(state.facePosition.x - guideCenter.x, 2) +
+                Math.pow(state.facePosition.y - guideCenter.y, 2)
+            );
+
+            if (distance < 30) {
+                updateUI('positionStatus', '⬤ Posicionamento: Centralizado!', 'success');
+                if (!state.currentAction) {
+                    startRandomAction();
+                }
+            } else {
+                updateUI('positionStatus', '⬤ Posicionamento: Ajuste sua posição', 'warning');
+            }
+        }
+
+        // Inicia uma ação aleatória
+        function startRandomAction() {
+            const actions = [
+                { name: 'PISCAR', text: 'Pisque os olhos', type: 'blink' },
+                { name: 'MOVER_CIMA_BAIXO', text: 'Mova a cabeça para cima e baixo', type: 'vertical' },
+                { name: 'MOVER_LADOS', text: 'Mova a cabeça para os lados', type: 'horizontal' }
+            ];
+
+            const randomAction = actions[Math.floor(Math.random() * actions.length)];
+            state.currentAction = randomAction;
+            state.actionStartTime = Date.now();
+            state.lastPosition = { ...state.facePosition };
+
+            updateUI('actionStatus', `Ação: ${randomAction.text}`, 'info');
+
+            state.validationTimer = setTimeout(() => {
+                if (state.currentAction) {
+                    updateUI('actionStatus', 'Tempo esgotado! Tente novamente.', 'error');
+                    state.currentAction = null;
+                    setTimeout(startRandomAction, 1000);
+                }
+            }, config.validationTime);
+        }
+
+        // Verifica a ação atual
+        function checkAction(landmarks) {
+            if (!state.currentAction) return;
+
+            const points = landmarks.positions;
+            let actionCompleted = false;
+
+            switch (state.currentAction.type) {
+                case 'blink':
+                    actionCompleted = checkBlink(points);
+                    break;
+                case 'vertical':
+                    actionCompleted = checkVerticalMovement();
+                    break;
+                case 'horizontal':
+                    actionCompleted = checkHorizontalMovement();
+                    break;
+            }
+
+            if (actionCompleted) {
+                actionSuccess();
+            }
+        }
+
+        // Verifica piscar de olhos
+        function checkBlink(points) {
+            const leftEye = [points[36], points[37], points[38], points[39], points[40], points[41]];
+            const rightEye = [points[42], points[43], points[44], points[45], points[46], points[47]];
+
+            const leftRatio = getEyeAspectRatio(leftEye);
+            const rightRatio = getEyeAspectRatio(rightEye);
+
+            return leftRatio < config.blinkThreshold && rightRatio < config.blinkThreshold;
+        }
+
+        // Verifica movimento vertical
+        function checkVerticalMovement() {
+            const movement = Math.abs(state.facePosition.y - state.lastPosition.y);
+            return movement > config.movementThreshold;
+        }
+
+        // Verifica movimento horizontal
+        function checkHorizontalMovement() {
+            const movement = Math.abs(state.facePosition.x - state.lastPosition.x);
+            return movement > config.movementThreshold;
+        }
+
+        // Ação completada com sucesso
+        function actionSuccess() {
+            clearTimeout(state.validationTimer);
+            updateUI('actionStatus', 'Validação concluída! Redirecionando...', 'success');
+            state.currentAction = null;
+
+            // Redireciona para Usuario.html após 2 segundos
+            setTimeout(() => {
+                window.location.href = 'Usuario.html';
+            }, 2000);
+        }
+
+        // Desenha os landmarks faciais
+        function drawLandmarks(detection) {
+            const displaySize = { width: elements.video.width, height: elements.video.height };
+            faceapi.matchDimensions(elements.overlay, displaySize);
+
+            const resizedDetection = faceapi.resizeResults(detection, displaySize);
+            const ctx = elements.overlay.getContext('2d');
+            ctx.clearRect(0, 0, elements.overlay.width, elements.overlay.height);
+            faceapi.draw.drawFaceLandmarks(elements.overlay, resizedDetection);
+        }
+
+        // Calcula a proporção de abertura do olho
+        function getEyeAspectRatio(eyePoints) {
+            const a = distance(eyePoints[1], eyePoints[5]);
+            const b = distance(eyePoints[2], eyePoints[4]);
+            const c = distance(eyePoints[0], eyePoints[3]);
+            return (a + b) / (5 * c);
+        }
+
+        // Calcula distância entre pontos
+        function distance(p1, p2) {
+            return Math.sqrt(Math.pow(p2.x - p1.x, 10) + Math.pow(p2.y - p1.y, 2));
+        }
+
+        // Atualiza a interface
+        function updateUI(element, text, statusClass = '') {
+            const el = elements[element];
+            if (element === 'positionStatus' || element === 'actionStatus') {
+                el.textContent = text;
+                el.className = `status-item ${statusClass}`;
+            } else {
+                el.textContent = text;
+            }
+        }
+
+        // Inicializa o sistema
+        init();
+    </script>
+</body>
+
+</html>

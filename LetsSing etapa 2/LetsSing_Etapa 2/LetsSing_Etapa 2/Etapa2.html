@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LetSing</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/etapa2.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0&icon_names=keyboard_arrow_down" />
+</head>
+
+<body>
+
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light navbar-purple fixed-top sticky-top">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                        aria-expanded="false">
+                        Acesso rápido
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="tela_contato.html">Contato</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="tela_contato.html#perguntas-frequentes">Ajuda</a>
+                    </div>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="tela_documentos.html">Documentos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="integracao.html">Integração</a>
+                </li>
+            </ul>
+            <div>
+                <button type="button" class="button-bar" onclick="window.location.href='Etapa 1.html';">Enviar documento </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+
+        <div class="container mt-5 pt-4">
+            <h4 class="title">Adicione signatários ao documento:</h4>
+            <div style="display: flex; justify-content: flex-end; align-items: left">
+                <div class="etapa-indicator">Etapa 2 de 3</div>
+            </div>
+
+
+
+
+            <form id="signatoryForm">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="cpf" class="form-label-esq">CPF:</label>
+                        <input type="text" class="form-control" id="cpf" placeholder="000.000.000-00" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="name" class="form-label-dir">Nome Completo:</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="email" class="form-label-esq">Email do Signatário:</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="signAs" class="form-label-dir">Assinar como:</label>
+                        <select class="form-control" id="signAs" required>
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="signatory">Signatário</option>
+                            <option value="witness">Testemunha</option>
+                            <option value="representative">Representante</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <label class="form-label-esq">Enviar link de assinatura por:</label>
+                        <div class="d-flex flex-wrap">
+                            <div class="form-check mr-4">
+                                <input class="form-check-input" type="checkbox" id="emailOption" checked>
+                                <label class="form-check-label" for="emailOption">Email</label>
+                            </div>
+                            <div class="form-check mr-4">
+                                <input class="form-check-input" type="checkbox" id="smsOption">
+                                <label class="form-check-label" for="smsOption">SMS</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="whatsappOption">
+                                <label class="form-check-label" for="whatsappOption">WhatsApp</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <label for="authMethod" class="form-label-esq">Método de Autenticação</label>
+                        <select class="form-control" id="authMethod" required>
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="email">Assinatura Digital</option>
+                            <option value="sms">Assinatura Manual</option>
+                            <option value="certificate">Certificado Digital</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="birthDate" class="form-label-dir">Data de Nascimento:</label>
+                        <input type="date" class="form-control" id="birthDate" required>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+
+        </div>
+
+        <div class="d-flex justify-content-end mb-4" style="margin-right: 15%;">
+            <a href="#" class="sign-button secondary">Adicionar signatário dos contatos</a>
+            <a href="#" class="sign-button primary ml-3">Adicionar signatário</a>
+        </div>
+
+
+
+        <!-- Container principal -->
+       <div class="data-container">
+    <div class="data-header-a">
+        <div class="row data-header-b gx-5 align-items-center flex-nowrap">
+            <div class="col text-nowrap text-center"><span>Signatário:</span></div>
+            <div class="col text-nowrap text-center"><span>Link:</span></div>
+            <div class="col text-nowrap text-center"><span>Assinatura enviada por:</span></div>
+            <div class="col text-nowrap text-center"><span>Método de autenticação:</span></div>
+            <div class="col text-nowrap text-center"><span>Solicita CPF?</span></div>
+            <div class="col text-nowrap text-center"><span>Data de nascimento:</span></div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row data-row gx-5">
+            <div class="col-12">
+                <span>Nenhum signatário adicionado. Utilize o formulário acima para adicionar signatários ao documento.</span>
+            </div>
+        </div>
+    </div>
+
+
+            <div class="d-flex justify-content-end gap-3">
+                <a href="Etapa 1.html" class="cancel-button">VOLTAR</a>
+                <a href="Etapa 3.html" class="save-button">ENVIAR</a>
+            </div>
+    </main>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+
+         <script src="JAVASCRIPT/Etapa2.js"></script>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

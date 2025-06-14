@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Configurações</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="CSS/Etapa3.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0&icon_names=keyboard_arrow_down" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+</head>
+<body>
+  <!-- cabeçalho -->
+  <nav class="navbar navbar-expand-lg navbar-light navbar-roxa fixed-top sticky-top">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    Acesso rápido
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="tela_contato.html">Contato</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="tela_contato.html#perguntas-frequentes">Ajuda</a>
+                </div>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="tela_documentos.html">Documentos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="integracao.html">Integração</a>
+            </li>
+        </ul>
+      <button type="button" class="button-bar" onclick="window.location.href='Etapa 1.html';">Enviar documento </button>
+          </a>
+        </div>
+        <!-- precisa adicionar nas outras paginas quando criadas -->
+      </div>
+      </nav>
+
+  <!-- Conteúdo principal -->
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+            <h2>CONFIGURAÇÕES</h2>
+        </div>
+        <div class="etapa-indicator">Etapa 3 de 3</div>
+    </div>
+
+    <div class="mb-4">
+      <label class="form-label">Data limite para assinaturas:</label>
+      <input type="date" class="form-control w-auto" />
+    </div>
+
+  <div class="mb-4">
+  <label class="form-label fw-bold lembretes-label">Lembretes automáticos</label>
+  <div class="form-check d-flex align-items-center gap-2">
+    <input class="form-check-input" type="checkbox" id="lembretesCheck">
+    <label class="form-check-label" for="lembretesCheck">
+      Enviar lembretes automáticos a cada:
+    </label>
+    <select class="form-select form-select-sm w-auto ms-2">
+      <option selected>3 dias</option>
+      <option>5 dias</option>
+      <option>7 dias</option>
+    </select>
+  </div>
+</div>
+
+  <div class="mb-4">
+  <label class="form-label fw-bold mensagem-label">Mensagem</label>
+  <div class="toolbar">
+    B I U 🖉 <span class="float-end small">Modelos de mensagens</span>
+  </div>
+  <div class="msg-editor">
+    <textarea class="form-control border-0" placeholder="Digite sua mensagem aqui..." rows="5"></textarea>
+  </div>
+</div>
+
+  <div class="mb-4">
+  <label class="form-label fw-bold observadores-label">Observadores</label>
+  <p class="small text-muted">
+    Adicione um ou mais e-mails, pressionando tab ou enter para cada e-mail adicionado:
+  </p>
+  <input type="text" class="form-control w-50">
+</div>
+
+    
+
+<div class="d-flex justify-content-end gap-3">
+            <a href="Etapa2.html" class="cancel-button">VOLTAR</a>
+            <a href="Usuario.html" class="save-button">ENVIAR</a>
+        </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    -->
+    <script src="JAVASCRIPT/SolicitacaoLoc.js"></script>
+</body>
+</html>

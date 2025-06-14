@@ -1,0 +1,357 @@
+:root {
+    --primary-color: #33336D;
+    --secondary-color: #6363D3;
+    --text-color: #333;
+    --light-bg: #f9f9f9;
+    --font-main: 'Poppins', sans-serif;
+}
+
+.navbar-purple {
+    background-color: #33336D;
+}
+
+.nav-link {
+    color: #FFFFFF !important;
+    margin-right: 30px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #FFFFFF !important;
+}
+
+/* Adiciona sublinhado animado */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FFFFFF;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+    visibility: visible;
+    width: 100%;
+}
+
+/* Cor de fundo ao clicar (active) */
+.dropdown-item:active {
+    background-color: #eeeeee !important;
+    /* Roxo mais claro */
+    color: white !important;
+}
+
+/* Cor ao passar o mouse (hover) */
+.dropdown-item:hover {
+    background-color: #eeeeee !important;
+    /* Roxo médio */
+}
+
+/* Remove o outline padrão do Bootstrap */
+.dropdown-item:focus {
+    outline: none;
+    background-color: #eeeeee !important;
+}
+
+.button-bar {
+    background-color: #FFFFFF;
+    color: #33336D;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    border: 1px solid #FFFFFF;
+    /* Borda sutil */
+    border-radius: 20px;
+    padding: 5px 15px;
+    /* Padding um pouco maior */
+    margin-left: auto;
+    margin-right: 400px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* Transição para todas as propriedades */
+}
+
+.button-bar:hover {
+    background-color: #4a50c8;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    /* Levanta levemente o botão */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil */
+}
+
+.button-bar:active {
+    transform: translateY(0);
+    /* Efeito de pressionado */
+}
+
+/* Estilos do Formulário */
+.form-label-esq {
+    margin-bottom: 8px;
+    color: rgb(88, 88, 88) !important;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.form-control,
+.form-select {
+    border-radius: 6px;
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    transition: all 0.3s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #33336D;
+    box-shadow: 0 0 0 0.2rem rgba(99, 99, 211, 0.25);
+}
+
+#name,
+#birthDate,
+#signAs,
+.form-label-dir {
+    margin-left: 30px;
+    /* Valor exato que você desejar */
+    width: calc(100% - 20px);
+    /* Mantém a largura responsiva */
+    font-family: 'Poppins', sans-serif;
+    color: rgb(88, 88, 88) !important;
+}
+
+.form-label-dir {
+    font-weight: 600;
+}
+
+.row .col-md-6:first-child .form-control {
+    margin-bottom: 20px;
+}
+
+/* botões */
+.cancel-button,
+.save-button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 20px;
+    /* Bordas arredondadas */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* Efeito suave ao passar o mouse */
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    text-decoration: none !important;
+    /* Garante que não fique sublinhado */
+    color: inherit !important;
+    /* Mantém a cor definida (não azul) */
+    margin-top: 50px;
+}
+
+/* Botão CANCELAR (sem gradiente, estilo secundário) */
+.cancel-button {
+    background: #f1f1f1;
+    color: #33336D;
+    border: 1px solid #33336D;
+    margin-right: 16px;
+}
+
+/* Botão SALVAR (com gradiente roxo) */
+.save-button {
+    background: linear-gradient(90deg, #33336D, #6363D3);
+    color: white !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil */
+}
+
+/* Efeito hover no botão SALVAR */
+.save-button:hover {
+    background: linear-gradient(90deg, #2a2a5a, #5a5ac8);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    /* Sombra mais forte */
+}
+
+/* Efeito hover no botão CANCELAR */
+.cancel-button:hover {
+    background: #e0e0e0;
+    transform: translateY(-2px);
+    /* Levanta levemente */
+}
+
+
+.cancel-button:hover,
+.save-button:hover {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+/* Remove focus outline */
+.cancel-button:focus,
+.save-button:focus {
+    box-shadow: none !important;
+}
+
+/* Espaçamento para os checkboxes */
+.form-check {
+    margin-bottom: 10px;
+}
+
+.title {
+    color: #4a50c8 !important;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 32px !important;
+    /* 32px de espaço abaixo do título */
+    display: block;
+    /* Garante que a margem seja aplicada */
+    font-weight: 600;
+    /* Opcional: peso da fonte para destaque */
+    position: relative;
+    /* Para adicionar elementos decorativos (opcional) */
+    padding-bottom: 32px !important;
+    /* Espaçamento interno abaixo do título */
+}
+
+
+.data-container {
+    font-family: 'Poppins', sans-serif;
+    width: 70%;
+    margin: 20px auto;
+    overflow-x: auto; /* Habilita scroll horizontal se necessário */
+}
+
+.data-header-a {
+    background: #ebebec;
+    border-radius: 8px 8px 0 0;
+    padding: 3px 20px;
+    margin-top: 50px;
+}
+
+.data-header-b {
+    display: flex;
+    gap: 20px; /* Reduz o gap para telas pequenas */
+    font-size: 15px;
+    font-weight: 600;
+    color: #4a50c8;
+    padding: 12px 0;
+    white-space: nowrap; /* Impede quebra de linha */
+    min-width: 800px; /* Largura mínima antes de ativar scroll */
+}
+
+.data-header-b span {
+    flex: 1; /* Distribui igualmente o espaço */
+    min-width: 100px; /* Largura mínima para cada item */
+    text-align: center;
+}
+
+.data-content {
+    padding: 15px;
+    border: 1px solid #eee;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 1200px) {
+    .data-container {
+        width: 90%; /* Ocupa mais espaço em telas menores */
+    }
+    .data-header-b {
+        gap: 15px; /* Reduz o espaçamento */
+    }
+}
+
+@media (max-width: 768px) {
+    .data-container {
+        width: 95%;
+    }
+    .data-header-b {
+        gap: 10px;
+        font-size: 0.9rem;
+        min-width: 700px; /* Ajusta a largura mínima para mobile */
+    }
+}
+.data-row {
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    border-bottom: 1px solid #eee;
+    padding: 12px 0;
+}
+
+.data-item {
+    flex: 1;
+    padding: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.etapa-indicator {
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+    background: linear-gradient(90deg, #33336D, #6363D3);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    margin-right: 0;
+    margin-left: auto;
+    margin-bottom: 40px;
+}
+
+
+
+
+/* Estilos para os botões de signatário */
+.sign-button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+    color: white !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: var(--font-main);
+}
+
+/* Botão secundário */
+.sign-button.secondary {
+    background-color: var(--primary-color); /* #33336D */
+    border: 1px solid var(--primary-color);
+}
+
+.sign-button.secondary:hover {
+    background-color: #2a2a5a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Botão primário */
+.sign-button.primary {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border: 1px solid var(--secondary-color);
+}
+
+.sign-button.primary:hover {
+    background: linear-gradient(90deg, #2a2a5a, #5a5ac8);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Espaçamento entre botões */
+.ml-3 {
+    margin-left: 1rem !important;
+}

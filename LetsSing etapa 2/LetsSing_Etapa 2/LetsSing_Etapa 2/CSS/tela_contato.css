@@ -1,0 +1,305 @@
+:root {
+    --primary-color: #33336D;
+    --secondary-color: #6363D3;
+    --text-color: #333;
+    --light-bg: #f9f9f9;
+    --font-main: 'Poppins', sans-serif;
+}
+
+.navbar-purple {
+    background-color: #33336D;
+}
+
+.nav-link {
+    color: #FFFFFF !important;
+    margin-right: 30px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #FFFFFF !important;
+}
+
+/* Adiciona sublinhado animado */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FFFFFF;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+    visibility: visible;
+    width: 100%;
+}
+
+/* Cor de fundo ao clicar (active) */
+.dropdown-item:active {
+    background-color: #eeeeee !important;
+    /* Roxo mais claro */
+    color: white !important;
+}
+
+/* Cor ao passar o mouse (hover) */
+.dropdown-item:hover {
+    background-color: #eeeeee !important;
+    /* Roxo médio */
+}
+
+/* Remove o outline padrão do Bootstrap */
+.dropdown-item:focus {
+    outline: none;
+    background-color: #eeeeee !important;
+}
+
+.button-bar {
+    background-color: #FFFFFF;
+    color: #33336D;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    border: 1px solid #FFFFFF;
+    /* Borda sutil */
+    border-radius: 20px;
+    padding: 5px 15px;
+    /* Padding um pouco maior */
+    margin-left: auto;
+    margin-right: 400px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* Transição para todas as propriedades */
+}
+
+.button-bar:hover {
+    background-color: #4a50c8;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    /* Levanta levemente o botão */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil */
+}
+
+.button-bar:active {
+    transform: translateY(0);
+    /* Efeito de pressionado */
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 100px;
+    margin-left: 170px;
+}
+
+.title {
+    color: #4a50c8;
+    margin-bottom: 10px;
+    /* text-align: right; (opcional se o container já tiver) */
+}
+
+
+
+.btn-icon {
+    color: #4a50c8 !important;
+}
+
+/* Contact Info Side Styles */
+.contact-info-side {
+    padding: 1.5rem;
+}
+
+.contact-section-title {
+    color: #33336D;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    padding: 15px;
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+    color: #4a50c8;
+    margin-right: 1rem;
+    margin-top: 0.25rem;
+}
+
+.contact-title {
+    color: #33336D;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-text {
+    color: #666;
+    margin-bottom: 0.25rem;
+    font-size: 0.9375rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card-body {
+    padding: 10px !important;
+}
+
+/* Card do formulário */
+.form-card {
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(251, 245, 253) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-card .card-body {
+    padding: 2rem;
+}
+
+.form-card h2 {
+    color: #33336D;
+    font-size: 600;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Estilos para o formulário */
+.form-control,
+.form-select {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.form-select {
+    width: 100%;
+    max-width: 100%;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #33336D;
+    box-shadow: none;
+}
+
+.form-label {
+    font-size: 16px;
+}
+
+.btn-primary {
+    background-color: #33336D !important;
+    border: none !important;
+    padding: 8px 25px !important;
+    /* Ajustado para combinar com o design */
+    margin-top: 10px;
+    border-radius: 20px !important;
+    outline: none !important;
+    box-shadow: none !important;
+    /* Novas propriedades adicionadas: */
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: #FFFFFF !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    user-select: none;
+}
+
+.btn-primary:hover {
+    background-color: #1a1a4d !important;
+    transform: translateY(-2px);
+    /* Efeito de levitação sutil */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+    /* Sombra suave */
+}
+
+.btn-primary:active {
+    transform: translateY(1px);
+    /* Efeito de pressionado */
+    box-shadow: none !important;
+}
+
+.btn-primary:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 0.2rem rgba(51, 51, 109, 0.25) !important;
+    /* Sombra de foco personalizada */
+}
+
+/* Títulos */
+h1,
+h2 {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+h3 {
+    font-family: 'Poppins', sans-serif;
+    padding: 30px;
+}
+
+/* Estilização do acordeão */
+.accordion .card {
+    margin-bottom: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px !important;
+    overflow: hidden;
+}
+
+.accordion .card-header {
+    background-color: #f8f9fa;
+    padding: 0;
+    border-bottom: none;
+}
+
+.accordion .btn-link {
+    display: flex;
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1.5rem;
+    color: #333;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.accordion .btn-link:hover {
+    color: #33336D;
+    text-decoration: none;
+}
+
+.accordion .btn-link .bi-plus {
+    transition: transform 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.accordion .btn-link:not(.collapsed) .bi-plus {
+    transform: rotate(45deg);
+}
+
+.accordion .btn-link:not(.collapsed) span:last-child span {
+    display: none;
+}
+
+.accordion .card-body {
+    padding: 1.25rem;
+    background-color: #fff;
+    border-top: 1px solid #e0e0e0;
+}
+
