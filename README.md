@@ -10,7 +10,7 @@ Sistema completo de autenticação multifator e assinatura digital com:
 ## 🚀 Como Executar
 1. Clone o repositório:
 ```bash
-git clone [URL_DO_REPOSITORIO]
+git clone [https://github.com/Marcosvilel/Challenge-LetSing.git]
 ```
 2. Abra o arquivo `Login.html` no navegador
 
